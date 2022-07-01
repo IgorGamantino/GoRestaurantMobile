@@ -8,5 +8,10 @@ export const theme = {
     cyan200: "#E4E4EB",
     cyan300: "#B7B7CC",
     cyan500: "#3D3D4D",
+  },
+  font: {
+    Roboto: "Roboto_400Regular",
+    Poppions: "Poppins_600SemiBold",
+    Sofia: "Sofia_400Regular"
   }
 }

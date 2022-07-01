@@ -1,9 +1,14 @@
 import React from "react";
-import { Text } from "react-native";
+import { Header } from "../components/Header";
+import { Search } from "../components/Search";
 
 
 export function Home() {
   return (
-    <Text>ola</Text>
+    <>
+      <Header />
+      <Search placeholder="Qual comida você procura?" />
+
+    </>
   )
 }

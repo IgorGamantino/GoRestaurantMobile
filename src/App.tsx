@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect } from 'react';
-import { StyleSheet, View } from 'react-native';
 import { useFonts, Poppins_600SemiBold, } from '@expo-google-fonts/poppins';
 import { Roboto_400Regular } from '@expo-google-fonts/roboto';
 import { Sofia_400Regular } from '@expo-google-fonts/sofia';
@@ -33,7 +32,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
       <Container>
         <Home />
       </Container>
@@ -43,8 +42,9 @@ export default function App() {
 
 const Container = styled.View`
   flex: 1;
-  align-items: center;
-  justify-content: center;
+  background: ${({ theme }) => theme.colors.white};
+  /* align-items: center; */
+  /* justify-content: center; */
 
 
 `;
