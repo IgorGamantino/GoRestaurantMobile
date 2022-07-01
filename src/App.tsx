@@ -6,8 +6,11 @@ import { Roboto_400Regular } from '@expo-google-fonts/roboto';
 import { Sofia_400Regular } from '@expo-google-fonts/sofia';
 import styled from 'styled-components/native'
 import * as SplashScreen from 'expo-splash-screen';
-export default function App() {
+import { ThemeProvider } from 'styled-components'
+import { theme } from './styles/global';
+import { Home } from './screens/Home';
 
+export default function App() {
   let [fontsLoaded] = useFonts({
     Poppins_600SemiBold,
     Sofia_400Regular,
@@ -29,23 +32,19 @@ export default function App() {
 
 
   return (
-    <View style={styles.container}>
-      <Text>Hello world!</Text>
+    <ThemeProvider theme={theme}>
       <StatusBar style="auto" />
-    </View>
+      <Container>
+        <Home />
+      </Container>
+    </ThemeProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#c3c2c3',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const Container = styled.View`
+  flex: 1;
+  align-items: center;
+  justify-content: center;
 
-const Text = styled.Text`
-  font-size: 70px;
-  color: orange;
+
 `;
