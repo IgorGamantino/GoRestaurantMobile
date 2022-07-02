@@ -13,6 +13,6 @@ export const Input = styled(TextInput)`
   border-radius: 8px;
   font-family: ${({ theme }) => theme.font.Roboto};
   position: relative;
-  top: -20px;
+  top: -30px;
   padding: 10px
 `
