@@ -5,6 +5,7 @@ export const Container = styled.View`
   margin-bottom: 20px;
   justify-content: center;
   align-items: center;
+  margin-top: 17px;
   paddingHorizontal: 24px;
 `;
 
@@ -39,16 +40,31 @@ export const Image = styled.Image`
 export const WrapperText = styled.View`
   flex: 1;
   padding: 13px;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
+  justify-content: space-around;
 
 `;
 
-export const Text = styled.Text``;
+export const Text = styled.Text`
+ color: ${({ theme }) => theme.colors.cyan500};
+ font-size: 15px;
+ font-family: ${({ theme }) => theme.font.Poppions};
+`;
+
 
 
 export const Description = styled.Text`
   font-family: ${({ theme }) => theme.font.Roboto};
-  text-align: center;
+  text-align: left;
+  color: ${({ theme }) => theme.colors.cyan500};
 `
 
+export const Price = styled.Text`
+  font-family: ${({ theme }) => theme.font.Roboto};
+  font-size: 18px;
+
+  color: ${({ theme }) => theme.colors.green};
+
+
+
+`;

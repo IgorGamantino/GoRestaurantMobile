@@ -1,13 +1,13 @@
 import styled from 'styled-components/native';
 
-
-
-export const List = styled.ScrollView`
-  flex: 1;
+export const Container = styled.View`
+  height: 128px;
   padding-left: 8px;
   margin-top: 16px;
-  height: 128px;
-  /* width:100%; */
+  margin-bottom: 40px;
+`;
+
+export const List = styled.ScrollView`
 `
 
 export const Card = styled.View`

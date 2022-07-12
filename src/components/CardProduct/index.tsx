@@ -1,6 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 import React from 'react';
-import { Container, List, Card, Text, WrapperImage, Image, WrapperText, Description } from './style';
+import { Container, List, Card, Text, WrapperImage, Image, WrapperText, Description, Price } from './style';
 
 
 const MY_PRODUCTS = gql`
@@ -9,6 +9,7 @@ query products {
     id
     name
     description
+    price
     image {
       url
     }
@@ -25,6 +26,7 @@ type ProductsProps = {
   id: string;
   name: string;
   description: string
+  price: number;
   image: {
     url: string;
   }
@@ -36,12 +38,21 @@ export function CardProduct() {
 
   if (error) return <Container><Text>{error.message}</Text></Container>
 
-  const renderItem = (product: any) => (
+  const CurrentFormat = new Intl.NumberFormat('pt-Br', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 2
+
+  })
+
+
+  const renderItem = (product: ProductsProps) => (
     <Card key={product.id}>
       <WrapperImage><Image source={{ uri: product.image.url }} /></WrapperImage>
       <WrapperText>
         <Text>{product.name}</Text>
         <Description>{product.description}</Description>
+        <Price>{CurrentFormat.format(product.price)}</Price>
       </WrapperText>
     </Card>
   )
@@ -49,6 +60,7 @@ export function CardProduct() {
   return (
     <Container>
       <List
+        showsVerticalScrollIndicator={false}
         data={data?.fullproduct}
         renderItem={({ item }) => renderItem(item)}
       />

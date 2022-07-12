@@ -10,8 +10,10 @@ import styled from 'styled-components/native'
 import * as SplashScreen from 'expo-splash-screen';
 import { ThemeProvider } from 'styled-components'
 import { theme } from './styles/global';
-import { Home } from './screens/Home';
 import { client } from './services';
+import { Text } from 'react-native';
+import { Routes } from './routes';
+
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -20,26 +22,16 @@ export default function App() {
     Roboto_400Regular
   });
 
-  useEffect(() => {
-    async function loadfonts() {
-      if (!fontsLoaded) await SplashScreen.preventAutoHideAsync()
 
 
-      SplashScreen.hideAsync()
-
-    }
-
-
-    loadfonts()
-  }, [fontsLoaded])
-
+  if (!Poppins_600SemiBold) return <Text>Carregando...</Text>
 
   return (
     <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
         <StatusBar style="light" />
         <Container>
-          <Home />
+          <Routes />
         </Container>
       </ThemeProvider>
     </ApolloProvider>
@@ -50,7 +42,4 @@ const Container = styled.View`
   flex: 1;
   background: ${({ theme }) => theme.colors.white};
   justify-content: center;
-
-
-
 `;
