@@ -11,6 +11,9 @@ export const Container = styled.View`
 export const Wrapper = styled.SafeAreaView`
   flex-direction: row;
   justify-content: space-between;  
-  align-items: center
+  align-items: center;
 
 `;
+
+export const ExitButton = styled.TouchableOpacity``;
+

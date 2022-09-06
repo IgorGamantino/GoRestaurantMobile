@@ -3,9 +3,11 @@ import { Container, Title, SubTitle, Form, Input, Button, ButtonText, WrapperHea
 import auth from '@react-native-firebase/auth';
 
 import SopaIcon from '../../assets/sopa.svg';
+import Sopa from '../../assets/teste.svg';
 import { useContext, useState } from "react";
 import { useNavigation } from '@react-navigation/native';
 import { AuthContext } from '../../Context/authContext';
+import { View } from 'react-native';
 
 export function SignIn() {
   const [email, setEmail] = useState('');
@@ -33,11 +35,12 @@ export function SignIn() {
       <WrapperHeader>
         <SopaIcon />
         <Title>GoRestaurant</Title>
-
-
         <SubTitle>Uma verdadeira experiência Italiana.</SubTitle>
       </WrapperHeader>
+      <View style={{ position: 'absolute', width: '100%', top: 0, left: 0 }}>
+        <Sopa />
 
+      </View>
       <Form>
         <Input placeholder='E-mail' onChangeText={(email) => setEmail(email)} />
 

@@ -18,7 +18,6 @@ export function SignUp() {
 
     try {
       await auth().createUserWithEmailAndPassword(email, password);
-      navigate('SignIn');
 
 
       await AsyncStorage.setItem('@GoRestaurant:token', 'isLoggedIn')
@@ -27,6 +26,8 @@ export function SignUp() {
     catch (error) {
       console.log(error);
     }
+
+    navigate('SignIn');
   }
 
 
