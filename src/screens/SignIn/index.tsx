@@ -1,29 +1,57 @@
-import { Text, View } from "react-native";
 
-import { Container, Title, SubTitle, Form, Input, Button, ButtonText, Separator } from './styles';
+import { Container, Title, SubTitle, Form, Input, Button, ButtonText, WrapperHeader, ButtonCreateAccount, TextButtonCreateAccount } from './styles';
+import auth from '@react-native-firebase/auth';
 
 import SopaIcon from '../../assets/sopa.svg';
+import { useContext, useState } from "react";
+import { useNavigation } from '@react-navigation/native';
+import { AuthContext } from '../../Context/authContext';
 
 export function SignIn() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { navigate } = useNavigation();
+  const { setIsLoggedIn } = useContext(AuthContext);
+
+  async function handleSignIn() {
+    if (!email && !password) return;
+
+    try {
+      await auth().signInWithEmailAndPassword(email, password);
+      setIsLoggedIn(true);
+
+      navigate('Home');
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
+
+
   return (
     <Container>
-      <Title>GoRestaurant</Title>
+      <WrapperHeader>
+        <SopaIcon />
+        <Title>GoRestaurant</Title>
 
-      <SopaIcon />
 
-      <SubTitle>Uma verdadeira experiência Italiana.</SubTitle>
+        <SubTitle>Uma verdadeira experiência Italiana.</SubTitle>
+      </WrapperHeader>
 
       <Form>
-        <Input placeholder='User' />
-        <Input placeholder='Password' />
+        <Input placeholder='E-mail' onChangeText={(email) => setEmail(email)} />
 
-        <Button>
+        <Input placeholder='Password' onChangeText={(password) => setPassword(password)} />
+
+        <Button onPress={handleSignIn}>
           <ButtonText>Entrar</ButtonText>
         </Button>
 
       </Form>
-
-      <Separator />
+      <SubTitle>ou</SubTitle>
+      <ButtonCreateAccount onPress={() => navigate('SignUp')}>
+        <TextButtonCreateAccount>Criar uma conta</TextButtonCreateAccount>
+      </ButtonCreateAccount>
     </Container>
   )
 }

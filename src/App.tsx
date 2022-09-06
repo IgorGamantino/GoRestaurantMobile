@@ -13,6 +13,7 @@ import { theme } from './styles/global';
 import { client } from './services';
 import { Text } from 'react-native';
 import { Routes } from './routes';
+import { AuthContextProvider } from './Context/authContext';
 
 
 export default function App() {
@@ -30,16 +31,11 @@ export default function App() {
     <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
         <StatusBar style="light" />
-        <Container>
+        <AuthContextProvider>
           <Routes />
-        </Container>
+        </AuthContextProvider>
       </ThemeProvider>
     </ApolloProvider>
   );
 }
 
-const Container = styled.View`
-  flex: 1;
-  background: ${({ theme }) => theme.colors.white};
-  justify-content: center;
-`;

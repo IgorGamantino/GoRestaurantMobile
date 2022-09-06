@@ -3,20 +3,31 @@ import { Home } from '../screens/Home';
 import { NavigationContainer } from '@react-navigation/native';
 import Bag from '../assets/bag.svg'
 import { createStackNavigator } from '@react-navigation/stack';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import { SignIn } from '../screens/SignIn';
+import { useContext, useEffect } from 'react';
+import { AuthContext } from '../Context/authContext';
+import { SignUp } from '../screens/SignUp';
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 export function Routes() {
-  const signin = false;
+  const { isLoggedIn } = useContext(AuthContext);
+
+
   return (
     <NavigationContainer>
-      {!signin && <Stack.Navigator>
+      {!isLoggedIn && <Stack.Navigator initialRouteName='SignIn'>
         <Stack.Screen
+
           options={{ headerShown: false }}
           name="SignIn" component={SignIn} />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="SignUp" component={SignUp} />
       </Stack.Navigator>}
 
-      {signin && (
+      {isLoggedIn && (
         <Tab.Navigator initialRouteName='Home'
           screenOptions={{
             header: () => null,

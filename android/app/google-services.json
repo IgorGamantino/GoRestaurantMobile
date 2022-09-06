@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "234983496676",
+    "project_id": "gorestaurant-d27a6",
+    "storage_bucket": "gorestaurant-d27a6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234983496676:android:36e49ae986724ed42e85f1",
+        "android_client_info": {
+          "package_name": "com.gorestaurant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "234983496676-ggf486goisg4l862ifhjehgfsd3dj7oe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gorestaurant",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "234983496676-ktr7mtqh43jgkvfenmch89h9levdrk10.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdb4aGvXdj2t_xkQUmeraWzmzzRv0G_68"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "234983496676-ktr7mtqh43jgkvfenmch89h9levdrk10.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

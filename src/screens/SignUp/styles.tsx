@@ -4,7 +4,7 @@ export const Container = styled.View`
   flex: 1;
   background: ${({ theme }) => theme.colors.red};
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   padding: 0 20px;
 `;
 
@@ -19,14 +19,15 @@ export const WrapperHeader = styled.View`
 export const Title = styled.Text`
   font-size: 18px;
   margin-top: 10px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.font.Poppions};
 
 `;
 
 export const SubTitle = styled.Text`
-  font-size: 18px;
+  font-size: 16px;
+  text-align: center;
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.font.Poppions};
   margin: 20px 0px;
@@ -35,7 +36,7 @@ export const SubTitle = styled.Text`
 export const Form = styled.View`
   width: 100%;
   border-radius: 16px;
-  margin-top: 20px;
+  margin-bottom: 90px;
   padding: 10px;
 
 `
@@ -65,16 +66,11 @@ export const Button = styled.TouchableOpacity`
 export const ButtonText = styled.Text`
   font-size: 16px;
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.red};
+  color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.font.Poppions};
 
 `
-export const ButtonCreateAccount = styled.TouchableOpacity`
+
+export const ButtonHome = styled.TouchableOpacity`
+  background: ${({ theme }) => theme.colors.red};
 `;
-
-export const TextButtonCreateAccount = styled.Text`
-  font-size: 16px;
-  font-weight: bold;
-  color: ${({ theme }) => theme.colors.white};
-`
-
