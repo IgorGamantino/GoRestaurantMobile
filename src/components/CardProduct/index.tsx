@@ -1,7 +1,8 @@
 import { gql, useQuery } from '@apollo/client';
 import React from 'react';
 import { Container, List, Card, Text, WrapperImage, Image, WrapperText, Description, Price } from './style';
-
+import 'intl';
+import 'intl/locale-data/jsonp/pt-BR';
 
 const MY_PRODUCTS = gql`
 query products {
@@ -40,8 +41,7 @@ export function CardProduct() {
 
   const CurrentFormat = new Intl.NumberFormat('pt-Br', {
     style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 2
+    currency: "BRL",
 
   })
 
